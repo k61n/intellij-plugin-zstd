@@ -12,6 +12,7 @@ import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.panels.VerticalBox
 import com.intellij.ui.content.ContentFactory
 import com.github.k61n.intellijpluginzstd.services.MyProjectService
+import javax.swing.JButton
 
 class MyToolWindowFactory : ToolWindowFactory {
 
@@ -29,7 +30,9 @@ class MyToolWindowFactory : ToolWindowFactory {
         private val project = toolWindow.project
         private val service = project.service<MyProjectService>()
 
+        private var filename = ""
         private val labelCurrentFile = JBLabel("No file")
+        private val labelOutput = JBLabel("")
 
         fun getContent() = VerticalBox().apply {
             add(labelCurrentFile)
@@ -37,15 +40,22 @@ class MyToolWindowFactory : ToolWindowFactory {
                 FileEditorManagerListener.FILE_EDITOR_MANAGER,
                 object : FileEditorManagerListener {
                     override fun selectionChanged(event: FileEditorManagerEvent) {
-                        labelCurrentFile.text = MyBundle.message("currentfile", event.newFile?.presentableUrl ?: "No file")
+                        filename = event.newFile?.presentableUrl ?: "No file"
+                        labelCurrentFile.text = MyBundle.message("currentfile", filename)
                     }
                 }
             )
-//            add(JButton("Compress").apply {
-//                addActionListener {
-//                    ...
-//                }
-//            })
+            add(JButton("Compress current file").apply {
+                addActionListener {
+                    if (filename != "No file") {
+                        val out = service.compressFile(filename, level = 3)
+                        labelOutput.text = "Compressed to: $out"
+                    } else {
+                        labelOutput.text = "No local file to compress"
+                    }
+                }
+            })
+            add(labelOutput)
         }
 
         override fun dispose() {
