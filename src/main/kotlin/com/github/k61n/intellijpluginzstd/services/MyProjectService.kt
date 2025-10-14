@@ -3,7 +3,6 @@ package com.github.k61n.intellijpluginzstd.services
 import com.github.luben.zstd.ZstdInputStream
 import com.github.luben.zstd.ZstdOutputStream
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.project.Project
 import kotlin.io.path.Path
 import kotlin.io.path.inputStream
 import kotlin.io.path.outputStream
@@ -14,10 +13,10 @@ import kotlin.io.path.createFile
 import kotlin.io.path.deleteIfExists
 
 @Service(Service.Level.PROJECT)
-class MyProjectService(private val project: Project) {
+class MyProjectService() {
 
     /**
-     * Compress [inputAbsolutePath] into "[input].zst".
+     * Compress [inputAbsolutePath] into "input.zst".
      * @param level zstd compression level (1–9 typical; default 3)
      * @return absolute path to created .zst file
      */

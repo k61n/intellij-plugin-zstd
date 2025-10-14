@@ -25,7 +25,7 @@ class MyToolWindowFactory : ToolWindowFactory {
 
     override fun shouldBeAvailable(project: Project) = true
 
-    class MyToolWindow(private val toolWindow: ToolWindow) : Disposable {
+    class MyToolWindow(toolWindow: ToolWindow) : Disposable {
 
         private val project = toolWindow.project
         private val service = project.service<MyProjectService>()
