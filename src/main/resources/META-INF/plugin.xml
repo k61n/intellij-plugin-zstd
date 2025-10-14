@@ -9,7 +9,7 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.k61n.intellijpluginzstd.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.github.k61n.intellijpluginzstd.toolWindow.MyToolWindowFactory" id="zstdit"/>
         <postStartupActivity implementation="com.github.k61n.intellijpluginzstd.startup.MyProjectActivity" />
     </extensions>
 </idea-plugin>
