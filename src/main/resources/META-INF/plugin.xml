@@ -3,13 +3,8 @@
     <id>com.github.k61n.intellijpluginzstd</id>
     <name>zstdit</name>
     <vendor>k61n</vendor>
-
     <depends>com.intellij.modules.platform</depends>
-
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.k61n.intellijpluginzstd.toolWindow.MyToolWindowFactory" id="zstdit"/>
-        <postStartupActivity implementation="com.github.k61n.intellijpluginzstd.startup.MyProjectActivity" />
     </extensions>
 </idea-plugin>

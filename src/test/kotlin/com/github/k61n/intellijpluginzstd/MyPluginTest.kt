@@ -1,6 +1,5 @@
 package com.github.k61n.intellijpluginzstd
 
-import com.intellij.testFramework.TestDataPath
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import com.github.k61n.intellijpluginzstd.services.ZstdService
 import com.intellij.openapi.components.service
@@ -9,7 +8,6 @@ import kotlin.io.path.createTempDirectory
 import kotlin.io.path.readText
 import kotlin.io.path.writeText
 
-@TestDataPath($$"$CONTENT_ROOT/src/test/testData")
 class MyPluginTest : BasePlatformTestCase() {
 
     fun testZstdCompressionAndDecompression() {

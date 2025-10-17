@@ -1,6 +1,5 @@
 package com.github.k61n.intellijpluginzstd.toolWindow
 
-import com.github.k61n.intellijpluginzstd.MyBundle
 import com.github.k61n.intellijpluginzstd.services.ZstdService
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
@@ -42,7 +41,7 @@ class MyToolWindowFactory : ToolWindowFactory {
                 object : FileEditorManagerListener {
                     override fun selectionChanged(event: FileEditorManagerEvent) {
                         filename = event.newFile?.presentableUrl ?: "No file"
-                        labelCurrentFile.text = MyBundle.message("currentfile", filename)
+                        labelCurrentFile.text = "<html>Currently opened file:<br>$filename</html>"
                     }
                 }
             )
