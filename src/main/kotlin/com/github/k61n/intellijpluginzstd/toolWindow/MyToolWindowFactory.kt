@@ -1,8 +1,9 @@
 package com.github.k61n.intellijpluginzstd.toolWindow
 
 import com.github.k61n.intellijpluginzstd.MyBundle
-import com.intellij.openapi.Disposable
+import com.github.k61n.intellijpluginzstd.services.ZstdService
 import com.intellij.openapi.components.service
+import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent
 import com.intellij.openapi.fileEditor.FileEditorManagerListener
 import com.intellij.openapi.project.Project
@@ -11,7 +12,6 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.panels.VerticalBox
 import com.intellij.ui.content.ContentFactory
-import com.github.k61n.intellijpluginzstd.services.MyProjectService
 import javax.swing.JButton
 
 class MyToolWindowFactory : ToolWindowFactory {
@@ -28,7 +28,7 @@ class MyToolWindowFactory : ToolWindowFactory {
     class MyToolWindow(toolWindow: ToolWindow) : Disposable {
 
         private val project = toolWindow.project
-        private val service = project.service<MyProjectService>()
+        private val service = project.service<ZstdService>()
 
         private var filename = ""
         private val labelCurrentFile = JBLabel("No file")

@@ -2,7 +2,7 @@ package com.github.k61n.intellijpluginzstd
 
 import com.intellij.testFramework.TestDataPath
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
-import com.github.k61n.intellijpluginzstd.services.MyProjectService
+import com.github.k61n.intellijpluginzstd.services.ZstdService
 import com.intellij.openapi.components.service
 import kotlin.io.path.Path
 import kotlin.io.path.createTempDirectory
@@ -13,7 +13,7 @@ import kotlin.io.path.writeText
 class MyPluginTest : BasePlatformTestCase() {
 
     fun testZstdCompressionAndDecompression() {
-        val service = project.service<MyProjectService>()
+        val service = project.service<ZstdService>()
 
         val testContent = "test content"
         val testDir = createTempDirectory(prefix = "testZstd")

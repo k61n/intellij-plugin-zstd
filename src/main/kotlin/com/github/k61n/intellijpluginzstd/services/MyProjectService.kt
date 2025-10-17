@@ -13,7 +13,7 @@ import kotlin.io.path.createFile
 import kotlin.io.path.deleteIfExists
 
 @Service(Service.Level.PROJECT)
-class MyProjectService() {
+class ZstdService() {
 
     /**
      * Compress [inputAbsolutePath] into "input.zst".
