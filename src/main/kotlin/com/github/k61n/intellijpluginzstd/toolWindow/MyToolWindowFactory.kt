@@ -47,11 +47,15 @@ class MyToolWindowFactory : ToolWindowFactory {
             )
             add(JButton("Compress current file").apply {
                 addActionListener {
-                    if (filename != "No file") {
-                        val out = service.compressFile(filename, level = 3)
-                        labelOutput.text = "Compressed to: $out"
-                    } else {
+                    if (filename == "No file") {
                         labelOutput.text = "No local file to compress"
+                    } else {
+                        try {
+                            val out = service.compressFile(filename, level = 3)
+                            labelOutput.text = "<html>Compressed to:<br>$out</html>"
+                        } catch (e: Exception) {
+                            labelOutput.text = "<html>Compression failed:<br>${e.message}</html>"
+                        }
                     }
                 }
             })
