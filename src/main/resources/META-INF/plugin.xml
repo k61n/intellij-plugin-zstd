@@ -1,10 +1,10 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.k61n.intellijpluginzstd</id>
-    <name>zstdit</name>
+    <name>Zstdit</name>
     <vendor>k61n</vendor>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.k61n.intellijpluginzstd.toolWindow.MyToolWindowFactory" id="zstdit"/>
+        <toolWindow factoryClass="com.github.k61n.intellijpluginzstd.toolWindow.ZstditWindowFactory" id="Zstdit"/>
     </extensions>
 </idea-plugin>

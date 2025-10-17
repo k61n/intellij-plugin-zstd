@@ -14,7 +14,7 @@ import com.intellij.ui.components.panels.VerticalBox
 import com.intellij.ui.content.ContentFactory
 import javax.swing.JButton
 
-class MyToolWindowFactory : ToolWindowFactory {
+class ZstditWindowFactory : ToolWindowFactory {
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         val myToolWindow = MyToolWindow(toolWindow)

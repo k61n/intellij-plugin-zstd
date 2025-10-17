@@ -8,7 +8,7 @@ import kotlin.io.path.createTempDirectory
 import kotlin.io.path.readText
 import kotlin.io.path.writeText
 
-class MyPluginTest : BasePlatformTestCase() {
+class Test : BasePlatformTestCase() {
 
     fun testZstdCompressionAndDecompression() {
         val service = project.service<ZstdService>()
