@@ -3,6 +3,7 @@ package com.github.k61n.intellijpluginzstd.services
 import com.github.luben.zstd.ZstdInputStream
 import com.github.luben.zstd.ZstdOutputStream
 import com.intellij.openapi.components.Service
+import com.intellij.openapi.diagnostic.thisLogger
 import kotlin.io.path.Path
 import kotlin.io.path.inputStream
 import kotlin.io.path.outputStream
@@ -25,6 +26,7 @@ class ZstdService() {
         require(input.isRegularFile()) { "Input must be a regular file: $inputAbsolutePath" }
 
         val output = input.parent.resolve("${input.name}.zst")
+        thisLogger().info("Compressing file: $inputAbsolutePath to $output")
         output.deleteIfExists()
         output.createFile()
 
@@ -35,6 +37,7 @@ class ZstdService() {
                 }
             }
         }
+        thisLogger().info("Compression successfull: $output")
         return output.absolutePathString()
     }
 
@@ -51,6 +54,7 @@ class ZstdService() {
         val output = input.parent.resolve(
             if (baseName != input.name) baseName else "${baseName}.out"
         )
+        thisLogger().info("Decompressing file: $inputAbsolutePath to $output")
         output.deleteIfExists()
         output.createFile()
 
@@ -61,6 +65,7 @@ class ZstdService() {
                 }
             }
         }
+        thisLogger().info("Decompression successfull: $output")
         return output.absolutePathString()
     }
 }

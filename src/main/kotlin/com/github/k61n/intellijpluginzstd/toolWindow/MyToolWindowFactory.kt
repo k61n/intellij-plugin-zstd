@@ -3,6 +3,7 @@ package com.github.k61n.intellijpluginzstd.toolWindow
 import com.github.k61n.intellijpluginzstd.MyBundle
 import com.github.k61n.intellijpluginzstd.services.ZstdService
 import com.intellij.openapi.components.service
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent
 import com.intellij.openapi.fileEditor.FileEditorManagerListener
@@ -54,6 +55,7 @@ class MyToolWindowFactory : ToolWindowFactory {
                             val out = service.compressFile(filename, level = 3)
                             labelOutput.text = "<html>Compressed to:<br>$out</html>"
                         } catch (e: Exception) {
+                            thisLogger().error("Compression UI action failed for $filename", e)
                             labelOutput.text = "<html>Compression failed:<br>${e.message}</html>"
                         }
                     }
