@@ -2,7 +2,7 @@
 # libraries
 junit = "4.13.2"
 opentest4j = "1.3.0"
-zstd = "1.5.7-5"
+zstd = "1.5.7-6"
 
 # plugins
 changelog = "2.4.0"
